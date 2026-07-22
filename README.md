@@ -439,26 +439,6 @@ RockLink performs gesture recognition locally.
 
 ---
 
-# 📸 Screenshots
-
-```
-Add screenshots here
-
-Home Screen
-
-Lobby
-
-Gameplay
-
-Player vs AI
-
-Winner Screen
-
-Mobile Layout
-```
-
----
-
 # 🤝 Contributing
 
 Contributions are welcome.
