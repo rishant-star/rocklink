@@ -1,0 +1,75 @@
+@import "./tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Signature animated gradient border (Design-System.md Section 1).
+     Two background layers: a solid fill clipped to padding-box (so it
+     sits *inside* the border), and the moving gradient clipped to
+     border-box (so it only ever shows in the 1px border ring). This
+     keeps the gradient from bleeding through the translucent glass
+     fill, which a simpler "gradient behind a semi-transparent panel"
+     approach would not. */
+  .glass-gradient-border {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(
+          var(--glass-panel-fill, var(--color-glass)),
+          var(--glass-panel-fill, var(--color-glass))
+        )
+        padding-box,
+      linear-gradient(120deg, var(--color-primary), var(--color-secondary), var(--color-primary))
+        border-box;
+    background-size:
+      100% 100%,
+      200% 200%;
+  }
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    /* Prevents the gray flash/highlight box on tap for touch devices,
+       since Button/interactive elements have their own deliberate
+       press feedback (Design-System.md Section 4). */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
+  }
+
+  ::selection {
+    background-color: rgba(192, 133, 82, 0.35);
+    color: var(--color-text-primary);
+  }
+}

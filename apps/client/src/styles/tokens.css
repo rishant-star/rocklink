@@ -1,0 +1,68 @@
+/**
+ * Design tokens as CSS variables.
+ * Source of truth: Design-System.md, Sections 1-3 and 5.
+ * Tailwind config mirrors these for utility classes; this file exists so
+ * non-Tailwind contexts (e.g. inline SVG, third-party widgets) can still
+ * reference the same values.
+ */
+:root {
+  /* Color — warm minimal charcoal system (replaces the earlier neon
+     glassmorphism palette). Semantic success/danger are kept (Score
+     Board/WinnerRevealCard depend on them functionally) but desaturated
+     to sit quietly in a mostly-monochrome UI instead of reading as neon. */
+  --color-bg: #121211;
+  --color-bg-elevated: #1b1b19;
+  --color-primary: #ece9e2;
+  --color-secondary: #a3a399;
+  --color-accent: #c08552;
+  --color-success: #8ca482;
+  --color-danger: #b2604b;
+  --color-glass: rgba(255, 255, 255, 0.04);
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+  --color-text-primary: #ece9e2;
+  --color-text-muted: rgba(236, 233, 226, 0.55);
+
+  /* Motion timing */
+  --motion-micro: 120ms;
+  --motion-transition: 280ms;
+  --motion-reveal: 600ms;
+  --motion-ambient: 8000ms;
+
+  /* Spacing scale (8px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Border radius — smaller, sharper than the old 16px glass-panel
+     radius, matching an editorial/product-page feel rather than a
+     rounded "glass card" feel. */
+  --radius-panel: 8px;
+  --radius-panel-sm: 6px;
+
+  /* Shadow — one quiet ambient elevation shadow, no colored glow. See
+     GlassPanel: differentiation between "glow" variants now comes from
+     border color, not shadow blur. */
+  --shadow-panel: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+
+  /* Z-index layers */
+  --z-background: -10;
+  --z-base: 0;
+  --z-content: 10;
+  --z-overlay: 20;
+  --z-modal: 30;
+  --z-toast: 40;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "rocklink",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev:client": "pnpm --filter @rocklink/shared-types build && pnpm --filter @rocklink/client dev",
+    "dev:server": "pnpm --filter @rocklink/shared-types build && pnpm --filter @rocklink/server dev",
+    "build": "pnpm --filter @rocklink/shared-types build && pnpm --filter @rocklink/client build && pnpm --filter @rocklink/server build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint apps packages --ext .ts,.tsx"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
