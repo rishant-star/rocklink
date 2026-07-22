@@ -10,7 +10,7 @@ You can copy this entirely and replace your current `README.md`.
 **The Hand is the Hardware.**  
 RockLink is a real-time, computer-vision-powered Rock, Paper, Scissors multiplayer game. It uses on-device machine learning to track your hand gestures through your webcam or mobile camera, battling either a local AI or a human opponent over your local network.
 
-![RockLink UI](https://via.placeholder.com/800x450/111827/06b6d4?text=RockLink+-+Computer+Vision+RPS) *(You can replace this placeholder with a real screenshot of the game later)*
+![RockLink UI](./image_6c68dc.png)
 
 ## ✨ Features
 
