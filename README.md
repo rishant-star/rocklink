@@ -500,9 +500,9 @@ B.Tech – Information Science & Engineering
 
 REVA University
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/rishant-star
 
-LinkedIn: https://linkedin.com/in/yourprofile
+LinkedIn: https://www.linkedin.com/in/rishant-ranjan-b79b12296
 
 ---
 
