@@ -1,140 +1,509 @@
-Here is a premium, comprehensive `README.md` tailored specifically for your stabilized RockLink repository. It covers the technical architecture, features, and the precise Windows/Mobile setup workflow we established.
+# ✨ RockLink
+### AI-Powered Real-Time Rock Paper Scissors using Computer Vision
 
-You can copy this entirely and replace your current `README.md`.
+<p align="center">
+
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite)
+![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=node.js)
+![Socket.IO](https://img.shields.io/badge/Socket.IO-Real--Time-black?logo=socketdotio)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-Hand%20Tracking-4285F4)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+</p>
 
 ---
 
-```markdown
-# 🤘 RockLink
+## 🎮 Overview
 
-**The Hand is the Hardware.**  
-RockLink is a real-time, computer-vision-powered Rock, Paper, Scissors multiplayer game. It uses on-device machine learning to track your hand gestures through your webcam or mobile camera, battling either a local AI or a human opponent over your local network.
+RockLink is a modern browser-based **Rock Paper Scissors** game powered entirely by **Computer Vision**.
 
-<img width="793" height="848" alt="image" src="https://github.com/user-attachments/assets/4208bc1d-cc9e-4e2b-8c2d-78d2592b5df7" />
+Instead of clicking buttons, players use **real hand gestures** detected through their webcam using **Google MediaPipe Hands**.
 
+RockLink supports:
 
-## ✨ Features
+- 🎯 Real-time Multiplayer
+- 🤖 Player vs AI
+- ✋ Hand Gesture Recognition
+- 📷 Live Camera Tracking
+- ⚡ Socket.IO Networking
+- 🎨 Premium Game UI
+- 📱 Responsive Design
 
-* **Hardware-Free Tracking:** No controllers needed. Uses Google MediaPipe to detect hand landmarks locally on your device in real-time.
-* **Premium Cinematic UI:** A dark, technical, computer-vision aesthetic featuring responsive layouts, cyan/amber accents, and minimal latency.
-* **Intelligent AI Engine:** Play against the computer in Easy, Normal, Hard, or Adaptive difficulty modes.
-* **LAN Multiplayer:** Create a room and invite a friend on the same Wi-Fi network. Features a highly stable, state-based connection using Socket.IO.
-* **Best-of-Series Matches:** Configurable match lengths (Best of 3, Best of 5) with fluid round-to-round cinematic transitions.
-* **Cross-Device Support:** Play laptop vs. laptop, or laptop vs. mobile. Each device handles its own camera feed securely and locally.
+All gesture detection happens **locally on the device**—video is **never uploaded**.
 
-## 🛠 Tech Stack
+---
 
-* **Frontend:** React 18, Vite, TypeScript, TailwindCSS, Framer Motion
-* **Backend:** Node.js, Express, Socket.IO
-* **Machine Learning:** Google MediaPipe (Hands)
-* **Architecture:** Monorepo using `pnpm` workspaces
+# 🚀 Features
 
-## 🚀 Windows Local Setup & Mobile Testing
+## 🎮 Multiplayer
 
-Because mobile browsers strictly enforce secure contexts for camera access (`navigator.mediaDevices.getUserMedia`), RockLink requires a local HTTPS setup using `mkcert` to function across your LAN.
+- Create private rooms
+- Join via Room Code
+- Invite using shareable links
+- Real-time synchronization
+- Ready system
+- Countdown synchronization
+- Automatic winner detection
+- Rematch support
+- Connection recovery
 
-### 1. Prerequisites
-* **Node.js** (v18 or higher)
-* **pnpm** (`npm install -g pnpm`)
-* **Chocolatey** (Windows package manager)
+---
 
-### 2. Install Dependencies
+## 🤖 Player vs AI
+
+Challenge an intelligent AI opponent with multiple difficulty levels.
+
+### Difficulty Modes
+
+- 🟢 Easy
+- 🔵 Normal
+- 🟠 Hard
+- 🔴 Adaptive
+
+Adaptive AI studies recent player moves and adjusts its strategy dynamically.
+
+---
+
+## 🏆 Match Modes
+
+Choose between:
+
+- Best of 3
+- Best of 5
+
+Instead of ending after every round, RockLink tracks the entire match and declares a final winner.
+
+---
+
+## ✋ Computer Vision
+
+Powered by **Google MediaPipe Hands**
+
+Features:
+
+- Live hand tracking
+- Gesture classification
+- Gesture stabilization
+- Confidence detection
+- Camera calibration
+- Real-time gesture locking
+
+Supported gestures:
+
+- ✊ Rock
+- ✋ Paper
+- ✌️ Scissors
+
+---
+
+## 🎨 Modern UI
+
+- Futuristic HUD
+- Camera overlays
+- Smooth animations
+- Responsive layout
+- Dark premium theme
+- Mobile-friendly interface
+
+---
+
+# 🏗 Architecture
+
+```
+                   React Client
+                        │
+                        │
+              MediaPipe Hand Tracking
+                        │
+                Gesture Recognition
+                        │
+                Game State Manager
+                        │
+             Socket.IO Client (PvP)
+                        │
+                 Express Server
+                        │
+               Room Management
+                        │
+             Multiplayer Synchronization
+```
+
+---
+
+# 🧠 AI System
+
+The AI uses four different strategies.
+
+## Easy
+
+Completely random.
+
+```
+Player
+   ↓
+Random Move
+```
+
+---
+
+## Normal
+
+Mostly random with occasional counters.
+
+---
+
+## Hard
+
+Predicts the player's previous move and counters it most of the time.
+
+---
+
+## Adaptive
+
+Keeps track of recent rounds and predicts the player's behavior.
+
+```
+Player History
+
+Rock
+Rock
+Paper
+Rock
+Scissors
+
+↓
+
+Pattern Analysis
+
+↓
+
+Counter Move
+```
+
+---
+
+# ⚙ Tech Stack
+
+## Frontend
+
+- React
+- TypeScript
+- Vite
+- Framer Motion
+- Zustand
+- React Router
+
+---
+
+## Backend
+
+- Node.js
+- Express
+- Socket.IO
+
+---
+
+## Computer Vision
+
+- Google MediaPipe Hands
+
+---
+
+## Development
+
+- pnpm Workspace
+- ESLint
+- TypeScript
+
+---
+
+# 📂 Project Structure
+
+```
+RockLink
+│
+├── apps
+│   ├── client
+│   └── server
+│
+├── packages
+│   └── shared-types
+│
+├── README.md
+├── package.json
+└── pnpm-workspace.yaml
+```
+
+---
+
+# ⚡ Installation
+
+## Requirements
+
+- Node.js 20+
+- pnpm
+
+Install pnpm if needed:
+
+```bash
+npm install -g pnpm
+```
+
+---
+
+## Clone
+
+```bash
+git clone https://github.com/yourusername/rocklink.git
+
+cd rocklink
+```
+
+---
+
+## Install Dependencies
+
 ```bash
 pnpm install
-
 ```
 
-### 3. Generate Local Certificates
+---
 
-Open **PowerShell as Administrator** and run the following commands to install `mkcert` and create your local Certificate Authority (CA):
-
-```powershell
-choco install mkcert
-mkcert -install
-
-```
-
-Next, find your computer's local LAN IP address:
-
-```powershell
-ipconfig
-# Look for the "IPv4 Address" under your active Wi-Fi/Ethernet adapter (e.g., 192.168.1.50)
-
-```
-
-Create a `certs` folder in the project root and generate the certificates for both `localhost` and your LAN IP:
-
-```powershell
-mkdir certs
-cd certs
-mkcert -key-file localhost-key.pem -cert-file localhost.pem localhost 127.0.0.1 <YOUR-LAN-IP>
-cd ..
-
-```
-
-*(Note: Do not commit these `.pem` files. The `certs/` directory is in the `.gitignore`.)*
-
-### 4. Running the Development Servers
-
-From the root directory, start both the backend socket server and the frontend Vite proxy:
-
-**Start the Server:**
+## Start Server
 
 ```bash
 pnpm dev:server
-
 ```
 
-**Start the Client:**
+---
+
+## Start Client
 
 ```bash
 pnpm dev:client
-
 ```
 
-## 📱 Connecting a Mobile Device (LAN Multiplayer)
+---
 
-To play against a phone on your network, the phone must trust the local CA you just created, or its browser will block the camera.
-
-1. **Find your Root CA:** In your terminal, run `mkcert -CAROOT`. This will output a folder path. Go to that folder and locate `rootCA.pem`.
-2. **Host the CA:** Host that folder temporarily using Python so your phone can download it:
-```bash
-python -m http.server 8080
+Open
 
 ```
-
-
-3. **Download on Phone:** Open your mobile browser and navigate to `http://<YOUR-LAN-IP>:8080/rootCA.pem`.
-4. **Trust the Certificate:**
-* **iOS:** Settings > Profile Downloaded > Install. Then go to Settings > General > About > Certificate Trust Settings > toggle your mkcert root to **ON**.
-* **Android:** Settings > Security > Encryption & credentials > Install a certificate > CA certificate > Select the downloaded file.
-
-
-5. **Play:** Open `https://<YOUR-LAN-IP>:5173` on your mobile browser. The camera permissions will now prompt successfully!
-
-## 📁 Project Structure
-
-```text
-rocklink/
-├── apps/
-│   ├── client/          # React/Vite frontend (UI, Camera pipelines, Socket client)
-│   └── server/          # Node/Express backend (Room management, Socket server)
-├── packages/
-│   └── shared-types/    # Shared TypeScript interfaces (Game rules, Socket events)
-├── certs/               # Local HTTPS certificates (git-ignored)
-├── public/              # MediaPipe WASM/Data models
-├── .gitignore
-├── package.json
-└── pnpm-workspace.yaml
-
+http://localhost:5173
 ```
 
-## 🧠 Architecture Notes
+---
 
-* **Same-Origin Sockets:** The client connects to `window.location.hostname` via a Vite proxy. This eliminates complex CORS configurations during local LAN development.
-* **Decentralized Processing:** Video frames are **never** transmitted over the network. MediaPipe inference happens 100% on the client device. Only lightweight, serialized game states (e.g., `ROOM:JOIN`, `GESTURE:LOCKED`) are sent through Socket.IO.
-* **In-Flight Guards:** The MediaPipe event loop is guarded against overlapping `send()` requests to prevent WASM thread freezing during high CPU loads or thermal throttling on mobile devices.
+# 📱 Mobile Testing
+
+For LAN testing:
+
+1. Connect laptop and phone to the same Wi-Fi.
+2. Start the development server.
+3. Open the LAN URL shown by Vite.
+
+Example:
 
 ```
+https://192.168.x.x:5173
+```
+
+> Camera access on mobile requires a secure HTTPS context.
+
+---
+
+# 🎮 Gameplay Flow
+
+## Multiplayer
 
 ```
+Create Room
+
+↓
+
+Share Link
+
+↓
+
+Opponent Joins
+
+↓
+
+Ready
+
+↓
+
+Countdown
+
+↓
+
+Gesture Detection
+
+↓
+
+Both Locked
+
+↓
+
+Winner
+
+↓
+
+Next Round
+
+↓
+
+Final Match Winner
+```
+
+---
+
+## AI Mode
+
+```
+Choose Difficulty
+
+↓
+
+Choose Match Length
+
+↓
+
+Camera Calibration
+
+↓
+
+Gesture Lock
+
+↓
+
+AI Thinking
+
+↓
+
+Round Result
+
+↓
+
+Score Update
+
+↓
+
+Next Round
+
+↓
+
+Match Winner
+```
+
+---
+
+# 🔒 Privacy
+
+RockLink performs gesture recognition locally.
+
+✔ Camera stays on your device.
+
+✔ No images are uploaded.
+
+✔ Only gameplay events are sent over Socket.IO.
+
+---
+
+# 📈 Future Improvements
+
+- Voice Chat
+- Spectator Mode
+- Match Replay
+- Online Leaderboards
+- User Accounts
+- Tournament Mode
+- Gesture Customization
+- Additional Hand Games
+- Mobile PWA
+- WebRTC Multiplayer
+
+---
+
+# 🛠 Challenges Solved
+
+- Stable real-time gesture recognition
+- Camera synchronization
+- Multiplayer state consistency
+- AI difficulty balancing
+- Gesture stabilization
+- Reconnection handling
+- Low-latency networking
+- Cross-device compatibility
+
+---
+
+# 📸 Screenshots
+
+```
+Add screenshots here
+
+Home Screen
+
+Lobby
+
+Gameplay
+
+Player vs AI
+
+Winner Screen
+
+Mobile Layout
+```
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+2. Create a feature branch
+
+```
+git checkout -b feature/new-feature
+```
+
+3. Commit your changes
+
+```
+git commit -m "Add new feature"
+```
+
+4. Push
+
+```
+git push origin feature/new-feature
+```
+
+5. Open a Pull Request
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Author
+
+**Rishant Ranjan**
+
+B.Tech – Information Science & Engineering
+
+REVA University
+
+GitHub: https://github.com/yourusername
+
+LinkedIn: https://linkedin.com/in/yourprofile
+
+---
+
+## ⭐ If you like this project, consider giving it a star!
